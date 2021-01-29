@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Booking</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+
+<body>
+    <!--Header and Menu Section-->
+    <header class="container">
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a class="active" href="#">Sign Up</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!--Booking Section-->
+    <main class="main-content container">
+        <div class="booking-form" id="bookingSection">
+            <h3>Booking Flights</h3>
+            <div class="input-group">
+                <label for="">Flying From</label>
+                <input class="inp-style" type="text" name="" placeholder="Dhake, Bangladesh">
+            </div>
+            <div class="input-group">
+                <label for="">Flying To</label>
+                <input class="inp-style" type="text" name="" placeholder="New York, United States">
+            </div>
+            <div class="inputs">
+                <div class="input-group">
+                    <label" for="">Departure</label>
+                    <input class="inp-style" type="date" name="">
+                </div>
+                <div class="input-group">
+                    <label for="">Return</label>
+                    <input class="inp-style" type="date" name="">
+                </div>
+            </div>
+            <div class="input-group f-class">
+                <div>
+                    <label for="">First Class ($150)</label>
+                    <input class="inp-style inp-width" type="number" name="" id="firstClassInput">
+                </div>
+                <div class="plus-minus-btn">
+                    <button style="width: 50px; border: none; background-color: transparent;" id="firstClassIncrease" >+</button > <button style="width: 50px; border: none; background-color: transparent;" id="firstClassDecrease">-</button>
+                </div>
+            </div>
+            
+            <div class="input-group f-class">
+                <div>
+                    <label for="">Economy ($100)</label>
+                    <input class="inp-style inp-width" type="number" name="" id="economyInput">
+                </div>
+                <div class="plus-minus-btn">
+                    <p> <button id="economyIncrease" style="width: 50px; border: none; background-color: transparent;">+</button> <button id="economyDecrease" style="width: 50px; border: none; background-color: transparent;">-</button> </p>
+                </div>
+            </div>
+            <div class="calculations">
+                <div class="amount">
+                    <div class="left">
+                        <p>Subtotal</p>
+                    </div>
+                    <div class="right">
+                        <p id="sub-total">$500</p>
+                    </div>
+                </div>
+
+                <div class="amount">
+                    <div class="left">
+                        <p>Charge 10% VAT</p>
+                    </div>
+                    <div class="right">
+                        <p id="tax">$50</p>
+                    </div>
+                </div>
+                <hr>
+                <div class="amount">
+                    <div class="left">
+                        <h4>Total</h4>
+                    </div>
+                    <div class="right">
+                        <p id="total">$550</p>
+                    </div>
+                </div>
+            </div>
+            <button class="btn-style" id="bookNow">Book Now</button>
+        </div>
+
+        <div class="booking-content">
+            <h1>discover <br> around the world</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicingelit. Provident voluptatibus quam fuga laborumalias veniam libero autem quasi maxime ullam vero nama imi dolor, architecto ab facilis eaque deserunt nobise voluptatibus quam</p>
+        </div>
+    </section>
+    <section>
+        <div id="confirmation-section">
+            <h4>You booked <span id="firstClassBooked">0 </span>first class ticket and <span id="economyBooked">0 </span>economy ticket.You need to pay total <span id="payTotal">0 </span>for this</h4>
+            <p>Are you sure to confirm this ticket?</p>
+            <div style="margin-left: 150px;">
+                <button type="submit" class="yes-no-button" id="yes">Yes</button> <button type="submit" class="yes-no-button " id="no">No</button>
+            </div>
+
+
+        </div>
+    </section>
+    <section>
+        <div class="account-section">
+            <div>
+                <h2>Enter your Bank Account Number and Password</h2>
+                <div class="input-section">
+                    <input type="text" id="accountNumber" placeholder="Enter your bank account number"><br>
+                    <div id="verification-section">
+                        <input type="text" placeholder="Enter your four digit verification code" id="verification"><br>
+                        <input type="password" name="" id="password" placeholder="Enter your password">
+                    </div>
+    
+                </div>
+                <button type="submit" id="confirmation">confirm</button>
+            </div>
+
+        </div>
+    </section>
+
+    <!--Thank You-->
+    <script src="main.js"></script> 
+</body>
+
+</html>
