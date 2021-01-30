@@ -114,7 +114,8 @@
         </section>
         <section>
             <div id="confirmation-section">
-                <h4>You booked <span id="firstClassBooked"> 0 </span> first class ticket and <span id="economyBooked"> 0
+                <h4>You have booked <span id="firstClassBooked"> 0 </span> first class ticket and <span
+                        id="economyBooked"> 0
                     </span> economy ticket.You need to pay total <span id="pay-total"> 0 </span> for this.</h4>
                 <p>Are you sure to confirm this ticket?</p>
                 <div style="margin-left: 150px;">
@@ -136,15 +137,15 @@
                         </div>
                     </div>
                     <button type="submit" id="confirmation"
-                        onclick="verifyAccount('accountNumber',1),verifyAccount('verification',2),verifyAccount('password',3)">confirm</button>
-                    <button type="submit" id="confirmation2" style="display: none; margin-top: 10px;"
+                        onclick="verifyAccount('accountNumber'),verifyAccount('verification'),verifyAccount('password')">confirm</button>
+                    <button type="submit" id="hiddenButton" style="display: none; margin-top: 10px;"
                         onclick="confirmButtonClick()">confirm</button>
                 </div>
             </div>
         </section>
         <section id="congratulateSection">
-            <h3>Thank you, you have successfully purchased e-ticket.It's deducted $<span
-                    id="purchase-total">000</span> from your balance.</h3>
+            <h3>Thank you, you have successfully purchased e-ticket.It's deducted <span id="purchase-total">000</span>
+                from your balance.</h3>
             <p>Please check your email and print your ticket.</p>
             <p>Stay with us</p><a href="index.html">Go Home</a>
         </section>

@@ -1,6 +1,6 @@
 //This function used for get ticket input and increased it when press plus minus button
 function ticketNumber(isIncrease, ticket) {
-    let ticketInput = getInput(ticket+"Input");
+    let ticketInput = getInput(ticket + "Input");
     if (isIncrease == true) {
         ticketInput++;
         if (ticket == "firstClass" && ticketInput >= 0) {
@@ -49,20 +49,24 @@ function fareCalculation() {
 //This function used for show the sub total,vat and total in their section
 function updateCalculation(id, total) {
     if (id == "sub-total") {
-        document.getElementById(id).innerText = "$" + total;
+        putValue("sub-total", total);
     }
     if (id == "vat-total") {
-        document.getElementById(id).innerText = "$" + total;
+        putValue("vat-total", total);
     }
     if (id == "grand-total") {
-        document.getElementById(id).innerText = "$" + total;
+        putValue("grand-total", total);
     }
     if (id == "pay-total") {
-        document.getElementById(id).innerText = "$" + total;
+        putValue("pay-total", total);
     }
     if (id == "purchase-total") {
-        document.getElementById(id).innerText = total;
+        putValue("purchase-total", total);
     }
+}
+//This function used for remove duplicate code and put the total,sub total ,vat and pay total value in their section
+function putValue(id, total) {
+    document.getElementById(id).innerText = "$" + total;
 }
 //This function used for show the ticket number in confirmation message
 function bookingInformation(myBooking, ticket) {
@@ -74,46 +78,50 @@ function bookingInformation(myBooking, ticket) {
     }
 }
 //This function used for verify account for transaction
-function verifyAccount(id, value) {
-    if (id == "accountNumber" && value == 1) {
+function verifyAccount(id) {
+    if (id == "accountNumber") {
         document.getElementById(id).style.display = "none";
         document.getElementById('confirmation').style.display = "none";
     }
-    if ((id == "verification" && value == 2) || (id == "password" && value == 3)) {
-        document.getElementById('confirmation2').style.display = "block";
+    if ((id == "verification") || (id == "password")) {
+        document.getElementById('hiddenButton').style.display = "block";
         document.getElementById(id).style.display = "block";
     }
 }
 //This function used for visible congratulate section when confirm button click
 function confirmButtonClick() {
     document.getElementById("accountSection").style.display = "none";
-    document.getElementById("congratulateSection").style.display = "block";    
+    document.getElementById("congratulateSection").style.display = "block";
 }
 //This button used for confirmation section
 function bookingConfirmation() {
-    const firstClassInputNumber =getInput("firstClassInput");
+    const firstClassInputNumber = getInput("firstClassInput");
     const economyInputNumber = getInput("economyInput");
     if ((firstClassInputNumber == "" && economyInputNumber == "") || (firstClassInputNumber <= 0 && economyInputNumber <= 0)) {
         alert("Please select your sit.");
     }
     else {
         document.getElementById("bookingSection").style.display = "none";
-        document.querySelector("#confirmation-section").style.display = "block";
+        document.getElementById("confirmation-section").style.display = "block";
     }
 }
 //This function used for click yes button and visible account section
 function yesButtonClick() {
-    document.querySelector("#confirmation-section").style.display = "none";
+    confirmationSectionChange("confirmation-section", "none");
     document.querySelector(".account-section").style.display = "block";
     document.querySelector("#no").style.display = "block";
 }
 //This function used for click no button and visible booking section and hide confirmation section
 function noButtonClick() {
     document.querySelector("#bookingSection").style.display = "block";
-    document.querySelector("#confirmation-section").style.display = "none";
+    confirmationSectionChange("confirmation-section", "none");
+}
+//change confirmation section display
+function confirmationSectionChange(id, value) {
+    document.getElementById(id).style.display = value;
 }
 //This function used for get input value
-function getInput(id){
+function getInput(id) {
     const ticketClassInput = document.getElementById(id).value;
     return ticketClassInput;
 }
