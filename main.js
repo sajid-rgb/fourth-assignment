@@ -24,16 +24,16 @@ function ticketNumber(isIncrease, ticket) {
     }
     fareCalculation();
 }
-//This function used for calculate sub total,total and tax.
+//This function used for calculate sub total,total and vat.
 function fareCalculation() {
     const firstClassInput = getInput("firstClassInput");
     const economyInput = getInput("economyInput");
     if (firstClassInput > 0 || economyInput) {
         const subTotalFare = firstClassInput * 150 + economyInput * 100;
-        const tax = subTotalFare * .1;
-        const totalFare = subTotalFare + tax;
+        const vat = subTotalFare * .1;
+        const totalFare = subTotalFare + vat;
         updateCalculation("sub-total", subTotalFare);
-        updateCalculation("vat-total", tax);
+        updateCalculation("vat-total", vat);
         updateCalculation("grand-total", totalFare);
         updateCalculation("pay-total", totalFare);
         updateCalculation("purchase-total", totalFare);
@@ -46,7 +46,7 @@ function fareCalculation() {
         updateCalculation("purchase-total", 0);
     }
 }
-//This function used for show the sub total,tax and total in their section
+//This function used for show the sub total,vat and total in their section
 function updateCalculation(id, total) {
     if (id == "sub-total") {
         document.getElementById(id).innerText = "$" + total;
