@@ -11,7 +11,7 @@
         rel="stylesheet">
     <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css">
-    
+
 </head>
 
 <body>
@@ -42,7 +42,7 @@
             <div class="inputs">
                 <div class="input-group">
                     <label" for="">Departure</label>
-                    <input class="inp-style" type="date" name="">
+                        <input class="inp-style" type="date" name="">
                 </div>
                 <div class="input-group">
                     <label for="">Return</label>
@@ -55,17 +55,23 @@
                     <input class="inp-style inp-width" type="number" name="" id="firstClassInput">
                 </div>
                 <div class="plus-minus-btn">
-                    <button style="width: 50px; border: none; background-color: transparent;" id="firstClassIncrease" >+</button > <button style="width: 50px; border: none; background-color: transparent;" id="firstClassDecrease">-</button>
+                    <button style="width: 50px; border: none; background-color: transparent;" id="firstClassIncrease"
+                        onclick="ticketNumber(true, 'firstClass')">+</button> <button
+                        style="width: 50px; border: none; background-color: transparent;" id="firstClassDecrease"
+                        onclick="ticketNumber(false, 'firstClass')">-</button>
                 </div>
             </div>
-            
+
             <div class="input-group f-class">
                 <div>
                     <label for="">Economy ($100)</label>
                     <input class="inp-style inp-width" type="number" name="" id="economyInput">
                 </div>
                 <div class="plus-minus-btn">
-                    <p> <button id="economyIncrease" style="width: 50px; border: none; background-color: transparent;">+</button> <button id="economyDecrease" style="width: 50px; border: none; background-color: transparent;">-</button> </p>
+                    <p> <button id="economyIncrease" style="width: 50px; border: none; background-color: transparent;"
+                            onclick="ticketNumber(true, 'economy')">+</button> <button id="economyDecrease"
+                            style="width: 50px; border: none; background-color: transparent;"
+                            onclick="ticketNumber(false, 'economy')">-</button> </p>
                 </div>
             </div>
             <div class="calculations">
@@ -74,7 +80,7 @@
                         <p>Subtotal</p>
                     </div>
                     <div class="right">
-                        <p id="sub-total">$500</p>
+                        <p id="sub-total">$0</p>
                     </div>
                 </div>
 
@@ -83,7 +89,7 @@
                         <p>Charge 10% VAT</p>
                     </div>
                     <div class="right">
-                        <p id="tax">$50</p>
+                        <p id="vat-total">$0</p>
                     </div>
                 </div>
                 <hr>
@@ -92,49 +98,59 @@
                         <h4>Total</h4>
                     </div>
                     <div class="right">
-                        <p id="total">$550</p>
+                        <p id="grand-total">$0</p>
                     </div>
                 </div>
             </div>
-            <button class="btn-style" id="bookNow">Book Now</button>
+            <button class="btn-style" id="bookNow" onclick="bookingConfirmation()">Book Now</button>
         </div>
 
         <div class="booking-content">
             <h1>discover <br> around the world</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicingelit. Provident voluptatibus quam fuga laborumalias veniam libero autem quasi maxime ullam vero nama imi dolor, architecto ab facilis eaque deserunt nobise voluptatibus quam</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicingelit. Provident voluptatibus quam fuga laborumalias
+                veniam libero autem quasi maxime ullam vero nama imi dolor, architecto ab facilis eaque deserunt nobise
+                voluptatibus quam</p>
         </div>
-    </section>
-    <section>
-        <div id="confirmation-section">
-            <h4>You booked <span id="firstClassBooked">0 </span>first class ticket and <span id="economyBooked">0 </span>economy ticket.You need to pay total <span id="payTotal">0 </span>for this</h4>
-            <p>Are you sure to confirm this ticket?</p>
-            <div style="margin-left: 150px;">
-                <button type="submit" class="yes-no-button" id="yes">Yes</button> <button type="submit" class="yes-no-button " id="no">No</button>
-            </div>
-
-
-        </div>
-    </section>
-    <section>
-        <div class="account-section">
-            <div>
-                <h2>Enter your Bank Account Number and Password</h2>
-                <div class="input-section">
-                    <input type="text" id="accountNumber" placeholder="Enter your bank account number"><br>
-                    <div id="verification-section">
-                        <input type="text" placeholder="Enter your four digit verification code" id="verification"><br>
-                        <input type="password" name="" id="password" placeholder="Enter your password">
-                    </div>
-    
+        </section>
+        <section>
+            <div id="confirmation-section">
+                <h4>You booked <span id="firstClassBooked"> 0 </span> first class ticket and <span id="economyBooked"> 0
+                    </span> economy ticket.You need to pay total <span id="pay-total"> 0 </span> for this.</h4>
+                <p>Are you sure to confirm this ticket?</p>
+                <div style="margin-left: 150px;">
+                    <button type="submit" class="yes-no-button" id="yes" onclick="yesButtonClick()">Yes</button> <button
+                        type="submit" class="yes-no-button " id="no" onclick="noButtonClick()">No</button>
                 </div>
-                <button type="submit" id="confirmation">confirm</button>
             </div>
+        </section>
+        <section>
+            <div class="account-section" id="accountSection">
+                <div>
+                    <h2>Enter your Bank Account Number and Password</h2>
+                    <div class="input-section">
+                        <input type="text" id="accountNumber" placeholder="Enter your bank account number"><br>
+                        <div id="verification-section">
+                            <input type="text" placeholder="Enter your four digit verification code"
+                                id="verification"><br>
+                            <input type="password" name="" id="password" placeholder="Enter your password">
+                        </div>
+                    </div>
+                    <button type="submit" id="confirmation"
+                        onclick="verifyAccount('accountNumber',1),verifyAccount('verification',2),verifyAccount('password',3)">confirm</button>
+                    <button type="submit" id="confirmation2" style="display: none; margin-top: 10px;"
+                        onclick="confirmButtonClick()">confirm</button>
+                </div>
+            </div>
+        </section>
+        <section id="congratulateSection">
+            <h3>Thank you, you have successfully purchased e-ticket.It's deducted $<span
+                    id="purchase-total">000</span> from your balance.</h3>
+            <p>Please check your email and print your ticket.</p>
+            <p>Stay with us</p><a href="index.html">Go Home</a>
+        </section>
 
-        </div>
-    </section>
-
-    <!--Thank You-->
-    <script src="main.js"></script> 
+        <!--Thank You-->
+        <script src="main.js"></script>
 </body>
 
 </html>
