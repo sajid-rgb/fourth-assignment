@@ -114,7 +114,7 @@ function noButtonClick() {
 }
 //This function used for get input value
 function getInput(id){
-    const ticketId = document.getElementById(id).value;
-    return ticketId;
+    const ticketClassInput = document.getElementById(id).value;
+    return ticketClassInput;
 }
 
